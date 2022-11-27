@@ -9,8 +9,10 @@ class Person:
             return f'''Name:{self.name}
                         phone:{self.phone}
                         nationalid:{self.nationalid}
-                        gender: {self.gender}'''
-        
+                        gender: {self.gender}
+                        ***************'''
+
+all_students = []    
 class student(Person):
     cs_nums = [] #to know how many students we have in each department
     is_nums =[]
@@ -31,7 +33,8 @@ class student(Person):
             student.is_nums.append(self)
         elif self.dept.lower() == 'bio':
            student.bio_nums.append(self)
-    
+        all_students.append(self)
+
     def get_academic_code(self):
         return self.academic_code
     def set_academic_code(self,code):
@@ -43,7 +46,8 @@ class student(Person):
         if course in student_affair_emp.courses:
             return f'You are now enrolled in {course}'
         else:
-            return f'{course} isn\'t available to enroll in'
+            return f'''{course} isn\'t available to enroll in
+                      **************'''
     
     def pay_bill(self):
         bill = 2500
@@ -57,7 +61,16 @@ class student(Person):
             return 'an alert is going to be send to you , you exceeded the abs available'
         else:
             return f'you were absent {num_of_absents} you still have {available_abs - num_of_absents} before alert is sent to you'
-    
+    @classmethod
+    def previliges(cls):
+        print('''Here is a list of what you can do:
+              1-Get or Set your academic code
+              2-Get your Certificate
+              3-Enroll course
+              4-Pay your Bills
+              5-Transfer to another college
+              6-Absent Times''')
+              
     
     
 class student_affair_emp(Person):
@@ -74,18 +87,41 @@ class student_affair_emp(Person):
                 return f'{course} exists already'
             else:
                 student_affair_emp.courses.append(course)
-                return f'{course} is added succefully'
+                return f'''{course} is added succefully
+                        ************'''
         elif year==2:
             student_affair_emp.courses.append(course)
-            return f'course is added'
+            return f'{course} is added'
     def register_student(Student):
         return f'{Student.name} is now registered'
+    def update_grades(self,Student,new_grade):
+        Student.grade = new_grade
+        print(f'{Student.name} grade\'s has been updated')
+
+    def delete_student(self,name):
+        for i in range(all_students.__len__()):
+            if all_students[i].name == name:
+                del all_students[i]
+                print(f'student {name} has been deleted')
+                break
+                 
+                
+    @classmethod
+    def previliges(cls):
+        print('''Here is a list of what you can do:
+              1-Update or Put a new course
+              2-Register Student
+              3-Update Student Grades
+              4-Delete Student with name
+              ''')
+              
             
 class doctor(Person):
     def __init__(self, name, nationalid, phone, address,salary,gender):
         super().__init__(name, nationalid, phone, address,gender)
         self.salary = salary
     def view_student_profile(self,Student):
+        print(f"{Student.name} profile: ")
         return Student.get_details()
     def kick_student_out(self):
         return 'Don\'t attend this session any more'
@@ -100,7 +136,15 @@ class doctor(Person):
             return len(student.is_nums)
         elif dept.lower() == 'bio':
             return len(student.bio_nums)
-    
+    @classmethod
+    def previliges(cls):
+         print('''Here is a list of what you can do:
+               0-Get doctor details
+               1-View Student profile
+               2-Kick student out
+               3-Teach course
+               4-View number of the students in the depatarment you teach
+               ''')
     
     
 class department:
@@ -115,28 +159,29 @@ class department:
             return len(student.is_nums)
         elif self.dept.lower() == 'bio':
             return len(student.bio_nums)
-    def show_description(self,dept):
-        if dept.lower() == 'cs':
+    def show_description(self):
+        if self.dept.lower() == 'cs':
             return 'This is Computer Science departement, best place to learn more about algorithms and machine learning, how computer works and much more'
-        elif dept.lower() =='is':
+        elif self.dept.lower() =='is':
             return 'This is Information System department, Here you can learn all about systems and how to implement it from scratch'
-        elif dept.lower() =='se':
+        elif self.dept.lower() =='se':
             return 'Welcome to Software Enginnering department , We give you here all what you will need to know about se , how to build software systems and how it works and much more advanced things'
-        elif dept.lower() =='bio':
+        elif self.dept.lower() =='bio':
             return 'This is Bio Informatics department,Here you will learn how biology and computer science is combined together to help people and improving their medical life'
         
 
 
 
 
-
-ahmed = student_affair_emp('ahmed', '123', '124', 'Egypt', 'fajf', 3434 , 23,'male')
-print(ahmed.update_put_course('Electronics',2))
-print(ahmed.get_details())
-
 s1 = student('mohammed', '30120', '0106693', 'Egypt', '423947292jr2134y', 99, 'male','cs')
 s2 = student('ali', '30120', '234', 'Egypt', '423947292jr2134y', 99, 'male','is')
 s3 = student('yasser', '30120', '234', 'Egypt', '423947292jr2134y', 99, 'male','is')
+
+ahmed = student_affair_emp('ahmed', '123', '124', 'Egypt', '3020293343', 3434 , 23,'male')
+student_affair_emp.previliges()
+print("*************")
+print(ahmed.update_put_course('Electronics',2))
+print(ahmed.get_details())
 print(s1.enroll_course('Database'))
 
 
@@ -148,5 +193,14 @@ print(d1.view_student_profile(s1))
 print(d1.get_details())
 de1 = department('cs')
 print(de1.show_numberOFstudents())
+print("*********")
+print(de1.show_description())
+print("*********")
 de2 = department('is')
 print(de2.show_numberOFstudents())
+print("*********")
+ahmed.delete_student('ali')
+print("*************")
+
+
+
