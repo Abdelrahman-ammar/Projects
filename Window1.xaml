@@ -1,0 +1,29 @@
+﻿<Window x:Name="___No_Name_" x:Class="hotel_systemm.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hotel_systemm"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid Background="#FFD6C8B2">
+        <WrapPanel Margin="269,10,10,10" Opacity="0.3" Background="Black"/>
+        <Image HorizontalAlignment="Left" Height="179" Margin="35,84,0,0" VerticalAlignment="Top" Width="199" Source="/images/photo_2023-04-23_20-57-53.jpg"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="302,49,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Lucida Calligraphy" Foreground="#FF1A0909" FontSize="22"/>
+        <TextBox x:Name="namebox" HorizontalAlignment="Left" Margin="431,49,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="292" Height="24" TextChanged="TextBox_TextChanged"/>
+        <Label Content="E-mail" HorizontalAlignment="Left" Margin="304,178,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Lucida Calligraphy" FontSize="20" RenderTransformOrigin="0.507,0.728"/>
+        <Label Content="National ID" HorizontalAlignment="Left" Margin="277,112,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Lucida Calligraphy" FontSize="18"/>
+        <Label Content="Password&#xD;&#xA;" HorizontalAlignment="Left" Margin="288,238,0,0" VerticalAlignment="Top" Height="33" FontSize="18" FontFamily="Lucida Calligraphy" Width="108" FontWeight="Bold"/>
+        <Label Content=" Phone Number" HorizontalAlignment="Left" Margin="277,301,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontWeight="Bold" FontSize="14"/>
+        <Label Content=" Gender" HorizontalAlignment="Left" Margin="293,354,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Lucida Calligraphy" FontSize="18"/>
+        <TextBox x:Name="nationalbox" HorizontalAlignment="Left" Margin="431,116,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="292" Height="27"/>
+        <TextBox x:Name="mailbox" HorizontalAlignment="Left" Margin="431,178,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="292" Height="27"/>
+        <TextBox x:Name="phonebox" HorizontalAlignment="Left" Margin="431,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Height="23" TextChanged="phonebox_TextChanged"/>
+        <PasswordBox x:Name="passwordbox" HorizontalAlignment="Left" Margin="431,242,0,0" VerticalAlignment="Top" Width="292" Height="25" Password=""/>
+        <RadioButton x:Name="genderbtn" Checked="genderbtn_Checked" Content=" Male" HorizontalAlignment="Left" Margin="440,364,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontWeight="Bold" FontSize="14" />
+        <RadioButton x:Name="genderbtn1" Checked="genderbtn_Checked" Content="Female" HorizontalAlignment="Left" Margin="539,364,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontFamily="Lucida Calligraphy"/>
+        <Button Content="Sign Up" HorizontalAlignment="Left" Margin="709,395,0,0" VerticalAlignment="Top" Height="22" Width="69" FontWeight="Bold" FontFamily="Lucida Calligraphy" Foreground="#FF231F1F" Background="#FFF8FAFB" BorderBrush="#FFF6F6F6" Opacity="0.7" Cursor="Hand" Click="Button_Click"/>
+        <Label Content="  SIGN UP" HorizontalAlignment="Left" Margin="35,267,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Jokerman" FontSize="38" Foreground="#FF4091BB" Width="199"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="630,393,0,0" VerticalAlignment="Top" Width="57" Height="24" Cursor="Hand"/>
+    </Grid>
+</Window>
